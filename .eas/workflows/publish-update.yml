@@ -1,0 +1,14 @@
+# Publishes the app to Expo Go every time code is pushed to master.
+# Open the "Technically!" project in Expo Go to load the newest version.
+name: Publish update
+
+on:
+  push:
+    branches: ['master']
+
+jobs:
+  publish_update:
+    name: Publish update
+    type: update
+    params:
+      branch: main
