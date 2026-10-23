@@ -1,5 +1,5 @@
 import Ionicons from '@expo/vector-icons/Ionicons';
-import { useEffect, useRef, type ReactNode } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 import { Animated, StyleSheet, Text, View, type StyleProp, type ViewStyle } from 'react-native';
 
 import { colors, fonts } from '../theme';
@@ -7,7 +7,7 @@ import { Bouncy } from './Button';
 
 /** Slides and fades its children in when it mounts. */
 export function SlideIn({ children, style }: { children: ReactNode; style?: StyleProp<ViewStyle> }) {
-  const progress = useRef(new Animated.Value(0)).current;
+  const [progress] = useState(() => new Animated.Value(0));
 
   useEffect(() => {
     Animated.spring(progress, { toValue: 1, useNativeDriver: true, speed: 14, bounciness: 4 }).start();

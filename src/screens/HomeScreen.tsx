@@ -8,7 +8,15 @@ import { SparkBurst, Squiggle, TitleLogo } from '../components/Decorations';
 import { QUESTIONS } from '../game/questions';
 import { colors, fonts } from '../theme';
 
-export function HomeScreen({ onPlay, onHowToPlay }: { onPlay: () => void; onHowToPlay: () => void }) {
+export function HomeScreen({
+  onPlay,
+  onHowToPlay,
+  onAbout,
+}: {
+  onPlay: () => void;
+  onHowToPlay: () => void;
+  onAbout: () => void;
+}) {
   return (
     <ScrollView contentContainerStyle={styles.content} bounces={false}>
       <View style={styles.header}>
@@ -20,7 +28,7 @@ export function HomeScreen({ onPlay, onHowToPlay }: { onPlay: () => void; onHowT
         </View>
 
         <View style={{ alignItems: 'center', gap: 2 }}>
-          <Text style={styles.tagline}>Argue first. Find out who's right.</Text>
+          <Text style={styles.tagline}>Argue first. Find out who’s right.</Text>
           <Squiggle width={220} />
         </View>
 
@@ -42,6 +50,11 @@ export function HomeScreen({ onPlay, onHowToPlay }: { onPlay: () => void; onHowT
         <Text style={styles.footer}>Smart. Silly. Seriously Fun.</Text>
         <Squiggle width={180} height={6} strokeWidth={3} />
       </View>
+
+      <Bouncy onPress={onAbout} style={styles.about} accessibilityLabel="About and privacy">
+        <Ionicons name="information-circle-outline" size={16} color={colors.faint} />
+        <Text style={styles.aboutText}>About & Privacy</Text>
+      </Bouncy>
     </ScrollView>
   );
 }
@@ -158,4 +171,6 @@ const styles = StyleSheet.create({
   },
   featureText: { fontFamily: fonts.extraBold, fontSize: 13, lineHeight: 16, color: colors.white, textAlign: 'center' },
   footer: { fontFamily: fonts.black, fontSize: 18, color: colors.white },
+  about: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 6, paddingVertical: 4 },
+  aboutText: { fontFamily: fonts.bold, fontSize: 14, color: colors.faint },
 });

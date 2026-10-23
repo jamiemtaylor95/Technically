@@ -1,7 +1,7 @@
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import * as Haptics from 'expo-haptics';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Animated, ScrollView, StyleSheet, Text, View } from 'react-native';
 
 import { PrimaryButton } from '../../components/Button';
@@ -24,7 +24,7 @@ export function RevealScreen({
   onNext: () => void;
 }) {
   const [shown, setShown] = useState(false);
-  const appear = useRef(new Animated.Value(0)).current;
+  const [appear] = useState(() => new Animated.Value(0));
   const winners = state.players.filter((p) => outcome.points[p.id] !== undefined);
 
   useEffect(() => {

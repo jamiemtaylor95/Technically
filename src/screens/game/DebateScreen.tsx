@@ -1,6 +1,6 @@
 import Ionicons from '@expo/vector-icons/Ionicons';
 import * as Haptics from 'expo-haptics';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Animated, ScrollView, StyleSheet, Text, View } from 'react-native';
 
 import { PrimaryButton } from '../../components/Button';
@@ -66,7 +66,7 @@ export function DebateScreen({
 }
 
 function TimerBar({ remaining, total }: { remaining: number; total: number }) {
-  const progress = useRef(new Animated.Value(1)).current;
+  const [progress] = useState(() => new Animated.Value(1));
   const hurry = remaining <= 5;
   const tint = hurry ? colors.red : colors.yellow;
 

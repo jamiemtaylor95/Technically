@@ -1,5 +1,5 @@
 import * as Haptics from 'expo-haptics';
-import { useRef, type ReactNode } from 'react';
+import { useState, type ReactNode } from 'react';
 import { Animated, Pressable, StyleSheet, Text, type StyleProp, type ViewStyle } from 'react-native';
 
 import { colors, fonts } from '../theme';
@@ -22,7 +22,7 @@ export function Bouncy({
   selected?: boolean;
   haptic?: boolean;
 }) {
-  const scale = useRef(new Animated.Value(1)).current;
+  const [scale] = useState(() => new Animated.Value(1));
   const animateTo = (value: number) =>
     Animated.spring(scale, { toValue: value, useNativeDriver: true, speed: 40, bounciness: 8 }).start();
 

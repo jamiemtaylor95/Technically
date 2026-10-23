@@ -17,6 +17,7 @@ import { QUESTIONS } from './src/game/questions';
 import { createGame, type GameState } from './src/game/session';
 import { storage } from './src/game/storage';
 import type { GameSettings, Player } from './src/game/types';
+import { AboutScreen } from './src/screens/AboutScreen';
 import { HomeScreen } from './src/screens/HomeScreen';
 import { HowToPlayScreen } from './src/screens/HowToPlayScreen';
 import { SetupScreen } from './src/screens/SetupScreen';
@@ -42,7 +43,14 @@ async function newGame(players: Player[], settings: GameSettings): Promise<GameS
 export default function App() {
   const [fontsLoaded] = useFonts({ Nunito_600SemiBold, Nunito_700Bold, Nunito_800ExtraBold, Nunito_900Black });
   const [screen, setScreen] = useState<Screen>({ name: 'home' });
-  const [showHowToPlay, setShowHowToPlay] = useState(false);
+  // The sheet's content stays put while it slides closed.
+  const [sheet, setSheet] = useState<'howToPlay' | 'about'>('howToPlay');
+  const [sheetVisible, setSheetVisible] = useState(false);
+  const openSheet = (kind: 'howToPlay' | 'about') => {
+    setSheet(kind);
+    setSheetVisible(true);
+  };
+  const closeSheet = () => setSheetVisible(false);
 
   return (
     <SafeAreaProvider>
@@ -53,7 +61,11 @@ export default function App() {
           <SafeAreaView style={{ flex: 1 }} edges={['top', 'bottom']}>
             {screen.name === 'home' && (
               <SlideIn key="home">
-                <HomeScreen onPlay={() => setScreen({ name: 'setup' })} onHowToPlay={() => setShowHowToPlay(true)} />
+                <HomeScreen
+                  onPlay={() => setScreen({ name: 'setup' })}
+                  onHowToPlay={() => openSheet('howToPlay')}
+                  onAbout={() => openSheet('about')}
+                />
               </SlideIn>
             )}
             {screen.name === 'setup' && (
@@ -78,14 +90,18 @@ export default function App() {
         )}
 
         <Modal
-          visible={showHowToPlay}
+          visible={sheetVisible}
           animationType="slide"
           presentationStyle="pageSheet"
-          onRequestClose={() => setShowHowToPlay(false)}
+          onRequestClose={closeSheet}
         >
           <View style={{ flex: 1, backgroundColor: colors.navyDeep }}>
             <Background />
-            <HowToPlayScreen onClose={() => setShowHowToPlay(false)} />
+            {sheet === 'about' ? (
+              <AboutScreen onClose={closeSheet} />
+            ) : (
+              <HowToPlayScreen onClose={closeSheet} />
+            )}
           </View>
         </Modal>
       </View>

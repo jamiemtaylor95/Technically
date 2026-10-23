@@ -1,0 +1,50 @@
+{
+  "configVersion": 0,
+  "apple": {
+    "copyright": "2026 Jamie Taylor",
+    "categories": [["GAMES", "GAMES_TRIVIA", "GAMES_FAMILY"], "ENTERTAINMENT"],
+    "info": {
+      "en-US": {
+        "title": "Technically!",
+        "subtitle": "The party game of being right",
+        "description": "Argue first. Find out who's right.\n\nTechnically! is a pass-and-play party game for people who love being right about ridiculous things. Every question has two answers: the one everyone assumes, and the one that's technically true.\n\nHow many legs does a crab have? Is a tomato a fruit? Which planet is closest to Earth? Make your case, then find out who was right.\n\nHOW IT WORKS\n• Debate your take: argue it out before the timer runs out.\n• Pass the phone: everyone secretly locks in A or B.\n• See the real answer: right answers score points, and siding with the minority earns an underdog bonus.\n• Learn fun facts: every answer comes with the story behind it.\n\nFEATURES\n• Nearly 200 surprising questions across Animals, Science, Space, Food, History, and Myths\n• 1 to 8 players on a single phone\n• Adjustable debate timer and game length\n• Questions you've already played are saved for later, so games stay fresh\n• No accounts, no ads, no tracking\n\nSmart. Silly. Seriously fun.",
+        "keywords": ["party game", "trivia", "debate", "friends", "family", "quiz", "facts", "myths", "group", "pass and play"],
+        "releaseNotes": "The first release of Technically!",
+        "promoText": "Argue first. Find out who's right. Nearly 200 questions with a surprising answer.",
+        "supportUrl": "https://jamiemtaylor95.github.io/Technically/support.html",
+        "marketingUrl": "https://jamiemtaylor95.github.io/Technically/",
+        "privacyPolicyUrl": "https://jamiemtaylor95.github.io/Technically/privacy.html"
+      }
+    },
+    "advisory": {
+      "alcoholTobaccoOrDrugUseOrReferences": "NONE",
+      "contests": "NONE",
+      "gamblingSimulated": "NONE",
+      "gunsOrOtherWeapons": "NONE",
+      "horrorOrFearThemes": "NONE",
+      "matureOrSuggestiveThemes": "NONE",
+      "medicalOrTreatmentInformation": "NONE",
+      "profanityOrCrudeHumor": "NONE",
+      "sexualContentGraphicAndNudity": "NONE",
+      "sexualContentOrNudity": "NONE",
+      "violenceCartoonOrFantasy": "NONE",
+      "violenceRealistic": "NONE",
+      "violenceRealisticProlongedGraphicOrSadistic": "NONE",
+      "gambling": false,
+      "lootBox": false,
+      "unrestrictedWebAccess": false,
+      "advertising": false,
+      "userGeneratedContent": false,
+      "messagingAndChat": false,
+      "parentalControls": false,
+      "healthOrWellnessTopics": false,
+      "ageAssurance": false,
+      "kidsAgeBand": null,
+      "ageRatingOverride": "NONE",
+      "koreaAgeRatingOverride": "NONE"
+    },
+    "release": {
+      "automaticRelease": true
+    }
+  }
+}

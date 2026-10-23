@@ -16,12 +16,20 @@ A pass-and-play party game for people who love being right about ridiculous thin
 
 Every push to `master` runs `.eas/workflows/publish-update.yml` on Expo's servers, which publishes a new version. Open Expo Go on your iPhone, sign in with your Expo account, and open the **Technically!** project to load the newest version.
 
+## Releasing to the App Store
+
+- `eas.json` has a `production` build profile, and `store.config.json` holds the App Store listing (text, keywords, category, age rating).
+- `.eas/workflows/release-ios.yml` builds the app on Expo's servers and uploads it to App Store Connect, where it appears in TestFlight. Run it from the project's **Workflows** page on expo.dev.
+- `store/screenshots/` has the iPhone 6.9" screenshots (1320×2868) for the listing.
+- `docs/` has the privacy policy and support pages, ready for GitHub Pages.
+
 ## Developing
 
 ```bash
 npm install
 npm test            # game logic tests (Vitest)
 npm run typecheck   # TypeScript
+npx expo lint       # lint
 npx expo start      # local dev server, if you have a computer handy
 ```
 

@@ -1,6 +1,6 @@
 import Ionicons from '@expo/vector-icons/Ionicons';
 import * as Haptics from 'expo-haptics';
-import { useEffect, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import { Animated, ScrollView, StyleSheet, Text, View } from 'react-native';
 
 import { PrimaryButton, SecondaryButton } from '../../components/Button';
@@ -18,7 +18,7 @@ export function ResultsScreen({
   onPlayAgain: () => void;
   onExit: () => void;
 }) {
-  const pop = useRef(new Animated.Value(0)).current;
+  const [pop] = useState(() => new Animated.Value(0));
   const ranking = standings(state);
   const top = winners(state);
   const solo = state.players.length === 1;

@@ -12,14 +12,18 @@
     },
     "ios": {
       "supportsTablet": false,
-      "bundleIdentifier": "com.example.technically"
+      "bundleIdentifier": "com.jamiemtaylor.technically",
+      "config": {
+        "usesNonExemptEncryption": false
+      }
     },
     "android": {
       "adaptiveIcon": {
         "backgroundColor": "#0A0F30",
         "foregroundImage": "./assets/icon.png"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.jamiemtaylor.technically"
     },
     "web": {
       "favicon": "./assets/favicon.png"
